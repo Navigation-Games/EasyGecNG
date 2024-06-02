@@ -5,6 +5,7 @@ package inOut;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 
@@ -31,7 +32,7 @@ import to.langage;
  */
 public class XmlLangage
 {
-  // Déclaration des variables Document et de la racine
+  // Dï¿½claration des variables Document et de la racine
   private static Document document;
   private static Element racine;
   private static String LANGS = "langs";
@@ -43,17 +44,20 @@ public class XmlLangage
 
 
   /**
-   * Méthode lisant le fichier XML passé en paramètre et construisant 
+   * Mï¿½thode lisant le fichier XML passï¿½ en paramï¿½tre et construisant 
    * Le vecteur contenant tous les parcours
    * @param fichier
    */
-  // Méthode de lecture du fichier XML
-  public  static void lecture(EasyGec easyGec, String fichier)
+  // Mï¿½thode de lecture du fichier XML
+  public  static void lecture(EasyGec easyGec, URL fichier)
   {
+    // System.out.println("In XML:");
+    // System.out.println(fichier);
+
     SAXBuilder sxb = new SAXBuilder();
     try
     {
-      document = sxb.build(new File(fichier));
+      document = sxb.build(fichier);
     }
     catch (JDOMException e)
     {
@@ -68,7 +72,7 @@ public class XmlLangage
     recupereAllStrings(easyGec);
   }
   
-  // Méthode récupérant toutes les orienteurs
+  // Mï¿½thode rï¿½cupï¿½rant toutes les orienteurs
   private static void recupereAllStrings(EasyGec easyGec)
   {
     Element result = racine.getChild(STRINGS);
@@ -95,7 +99,7 @@ public class XmlLangage
     }
   }
   
-  // Méthode récupérant toutes les parcours
+  // Mï¿½thode rï¿½cupï¿½rant toutes les parcours
   private static void recupereAllLangs(EasyGec easyGec)
   {
     Element pars = racine.getChild(LANGS);

@@ -10,9 +10,32 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
-    id 'java-library'
+    id 'java'
 }
 
+// Specify name of the EasyGecNG Jar to be built. TODO: rename app to avoid needing to do this
+// jar {
+//     archiveBaseName = 'EasyGecNG'
+// }
+
+// distributions {
+//     myZip {
+//         from('documentation') {
+//             include 'help.pdf'
+//         }
+//         // contents {
+//         //     from '/documentation'
+//         // }
+//     }
+// }
+
+task newZip(type: Zip)<<{
+    basename newZip
+    from ziptree(oldZip.zip)
+}
+DistZip.finalizedBy(newZip)
+
+// Specify that we require Java8
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(8)
@@ -20,7 +43,7 @@ java {
 }
 
 // App version. TODO: Pull this from git tag
-version = '1.0.0';
+version = '1.1.1';
 
 // Set the encoding to allow french characters. TODO: use UTF-8
 compileJava.options.encoding = "windows-1252"
@@ -32,12 +55,12 @@ repositories {
 }
 
 dependencies {
-    // TODO: need to migrate GecoSI to JSerialComm?
     implementation 'com.fazecast:jSerialComm:2.11.0'
     implementation 'jdom:jdom:1.+'
     implementation 'junit:junit:4.13'
     implementation 'org.mockito:mockito-core:1.9.+'
     
+    // TODO: need to migrate GecoSI to JSerialComm?
     // This is pulled from source defined in settings.gradle
     implementation 'net.gecosi:lib:1.+'
 }
@@ -51,3 +74,5 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+
+
