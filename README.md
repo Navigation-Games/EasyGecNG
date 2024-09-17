@@ -1,6 +1,6 @@
 # EasyGecNG
 
-EasyGecNG is a fork of [EasyGec](http://t.porret.free.fr/lienlogiciel.php?idmenu=60), which is in turn a fork of [Geco](http://sdenier.github.io/Geco/begin/index.html) ([source](https://github.com/sdenier/Geco)). It has been created for [Navigation Games](https://www.navigationgames.org/), a Boston-based non-profit focused on introducing the sport of orienteering to new audiences, especially school children. Geco was developed by Simon Denier, and EasyGec was developed by Thierry Porret. Thierry has kindly given us permission to use and modify his source code.
+EasyGecNG is a fork of [EasyGec](http://t.porret.free.fr/lienlogiciel.php?idmenu=60) by Thierry Porret, which is in turn a fork of [Geco](http://sdenier.github.io/Geco/begin/index.html) ([source](https://github.com/sdenier/Geco)) by Simon Denier. It has been created for [Navigation Games](https://www.navigationgames.org/), a Boston-based non-profit focused on introducing the sport of orienteering to new audiences, especially school children. Thierry has kindly given us permission to use and modify his source code.
 
 
 Here is a link to a blog post on NavigationGames.org detailing goals for this project:
@@ -19,7 +19,7 @@ GecoSI is distributed under the MIT license; some parts are released by SPORTide
 If you want to install a pre-built version of this software (i.e. you are not a developer), please download the following dependencies, then grab the latest [release](https://github.com/Navigation-Games/EasyGecNG/releases).
 ##### 1. JRE 8
   - Windows, Mac: Download and install the latest Java SE Runtime Environment from [here](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html).
-  - Linux: install `jre8-openjdk` using your preferred package manager.
+  - Linux: install `jre8-openjdk` using your preferred package manager. Make sure that java 8 is your default version with `java --version`
 ##### 2. Drivers
   - Windows: [SportIdent Driver](https://www.sportident.com/products/96-software/161-usb-driver.html)
   - Mac: [CP210x Driver](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)
@@ -73,8 +73,8 @@ Simply open the correct folder in the editor. Build/run/debug from terminal, or 
 
 ### IntelliJ
 1. Use the "New Project > Get from VCS" button. Put in the url of this git repo.
-2. A popup stating "gradle build scripts found." Click `Load Gradle Project`
-3. A menu should appear with the available Gradle tasks Double click `EasyGecNG > Tasks > application > run`
+2. A popup will appear, stating "gradle build scripts found." Click `Load Gradle Project`
+3. A menu should appear with the available Gradle tasks. Double click `EasyGecNG > Tasks > application > run`
 4. That's it!
 
 ## Generating Documentation
@@ -84,10 +84,6 @@ We will use Javadoc
 ## Generating Releases
 TODO :)
 
-### CI/CD
-- main branch is always releasable.
-- stable releases (the archive bundle with runnable jar, doc, other files...) are built and tagged from time to time from main.
-- in the future, we'd like any push to the repository to trigger an automated build, which compile the code and runs tests. This would be implemented with something like GitHub Actions or Travis.
 
 ### Manually creating a Release
 We need to figure out how to do this. The bundle would ideally include:
@@ -98,11 +94,17 @@ We need to figure out how to do this. The bundle would ideally include:
 
 
 # Development Guidelines
+
+### CI/CD
+- main branch is always releasable.
+- stable releases (the archive bundle with runnable jar, doc, other files...) are built and tagged from time to time from main.
+- in the future, we'd like any push to the repository to trigger an automated build, which compile the code and runs tests. This would be implemented with something like GitHub Actions or Travis.
+
 ### Good Practices
 - We should be using test-driven development, but we haven't figured out how to do that yet.
 - Documentation should be provided using javadoc comments on classes and methods.
 
-### Dependencies
+# Dependencies
 These are managed automatically by Gradle, but also enumerated here. TODO: Licensing
 - jSerialComm
 - jDom
