@@ -51,9 +51,6 @@ public class XmlLangage
   // M�thode de lecture du fichier XML
   public  static void lecture(EasyGec easyGec, URL fichier)
   {
-    // System.out.println("In XML:");
-    // System.out.println(fichier);
-
     SAXBuilder sxb = new SAXBuilder();
     try
     {

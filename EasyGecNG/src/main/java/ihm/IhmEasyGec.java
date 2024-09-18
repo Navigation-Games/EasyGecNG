@@ -781,15 +781,7 @@ public class IhmEasyGec extends JFrame
 
     easyGec = new EasyGec(IhmEasyGec.this);
 
-    String resourceLocation = "/lang.xml";
-    // System.out.println(resourceLocation);
-    // System.out.println(IhmEasyGec.class.getResource(resourceLocation).toExternalForm());
-    // System.out.println(IhmEasyGec.class.getResource(resourceLocation).toString());
-    // System.out.println(IhmEasyGec.class.getResource(resourceLocation).getPath());
-    // System.out.println(IhmEasyGec.class.getResource(resourceLocation).getFile());
-
     XmlLangage.lecture(easyGec, IhmEasyGec.class.getResource(resourceLocation));
-    // XmlLangage.lecture(easyGec, "lang.xml");
     Config.lectureFichier(easyGec, "config.xml");
     
     panel_7 = new JPanel();
