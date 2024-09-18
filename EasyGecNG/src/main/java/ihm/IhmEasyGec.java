@@ -781,7 +781,7 @@ public class IhmEasyGec extends JFrame
 
     easyGec = new EasyGec(IhmEasyGec.this);
 
-    XmlLangage.lecture(easyGec, IhmEasyGec.class.getResource(resourceLocation));
+    XmlLangage.lecture(easyGec, IhmEasyGec.class.getResource("/lang.xml"));
     Config.lectureFichier(easyGec, "config.xml");
     
     panel_7 = new JPanel();
