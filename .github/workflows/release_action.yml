@@ -1,0 +1,36 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is creating a release 🚀
+on:
+  push:
+    branches:
+      - qbowers/28_release_1.1.1
+
+# on:
+#   push:
+#     tags:
+#       - "v*.*.*"
+
+jobs:
+  AutoRelease:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job was triggered by event ${{ github.event_name }}"
+      - run: echo "This job is running on branch ${{ github.ref }} @ ${{ github.repository }}"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Nab Versions
+        run: echo ${{ github.sha }} > version.txt && echo $(git rev-parse --short HEAD) >> version.txt
+      - name: Build
+        run: ./gradlew assembleDist
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            EasyGecNG/build/distributions/*.zip
+            EasyGecNG/build/distributions/*.tar
+            README.md
+          tag_name: v0.0.0_test
+          token: ${{ secrets.RELEASE_TOKEN }}
+          generate_release_notes: true
+          body_path: release_body.md
+      - run: echo "This job has completed with status ${{ job.status }}."
