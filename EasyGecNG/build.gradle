@@ -21,11 +21,21 @@ java {
 }
 
 // App version. TODO: Pull this from git tag
-version = '1.1.1';
+// version = '1.1.0';
 
 // Set the encoding to allow french characters. TODO: use UTF-8
 compileJava.options.encoding = "windows-1252"
 compileTestJava.options.encoding = "windows-1252"
+
+
+jar {
+    manifest {
+        attributes(
+            'Implementation-Version': project.version.toString()
+        )
+    }
+}
+
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -52,5 +62,3 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
-
-

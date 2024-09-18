@@ -44,7 +44,7 @@ import to.langages;
  */
 public class EasyGec
 {
-  private String version = "1.4.2";
+  private String version = "DEVELOPMENT VERSION";
   private boolean abc = false;
   private boolean unss = false;
   private String fichier = "";
@@ -80,6 +80,10 @@ public class EasyGec
   {
     this.setIhm(ihm);
     siHandler = new SIReaderHandler(ihm);
+
+    if (getClass().getPackage().getImplementationVersion() != null) {
+      this.version = getClass().getPackage().getImplementationVersion();
+    }
   }
   
   public static int getLang()
