@@ -13,28 +13,6 @@ plugins {
     id 'java'
 }
 
-// Specify name of the EasyGecNG Jar to be built. TODO: rename app to avoid needing to do this
-// jar {
-//     archiveBaseName = 'EasyGecNG'
-// }
-
-// distributions {
-//     myZip {
-//         from('documentation') {
-//             include 'help.pdf'
-//         }
-//         // contents {
-//         //     from '/documentation'
-//         // }
-//     }
-// }
-
-task newZip(type: Zip)<<{
-    basename newZip
-    from ziptree(oldZip.zip)
-}
-DistZip.finalizedBy(newZip)
-
 // Specify that we require Java8
 java {
     toolchain {
