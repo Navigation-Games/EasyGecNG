@@ -16,7 +16,7 @@ GecoSI is distributed under the MIT license; some parts are released by SPORTide
 
 # Normal Installation Instructions
 
-If you want to install a pre-built version of this software (i.e. you are not a developer), please visit the [release page](https://www.navigationgames.org/about-3), and download these dependencies:
+If you want to install a pre-built version of this software (i.e. you are not a developer), please download the following dependencies, then grab the latest [release](https://github.com/Navigation-Games/EasyGecNG/releases).
 ##### 1. JRE 8
   - Windows, Mac: Download and install the latest Java SE Runtime Environment from [here](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html).
   - Linux: install `jre8-openjdk` using your preferred package manager.
@@ -28,6 +28,9 @@ If you want to install a pre-built version of this software (i.e. you are not a 
       - `sudo usermod -a -G dialout $USER` on debian-likes (Ubuntu, etc)
       - `sudo usermod -a -G uucp $USER` on arch-likes (Arch, Manjaro, etc)
     - Log out, log in, run the `group` command, and check that `uucp`/`dialout` appears in the results. 
+
+Old releases can be found [here](https://www.navigationgames.org/about-3).
+
 
 # Developer Installation Instructions
 

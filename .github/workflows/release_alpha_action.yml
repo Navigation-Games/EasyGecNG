@@ -31,6 +31,6 @@ jobs:
           tag_name: alpha_${{ steps.get_hash.outputs.git_hash }}
           token: ${{ secrets.RELEASE_TOKEN }}
           generate_release_notes: true
-          body_path: release_body.md
+          body_path: RELEASE.md
           make_latest: false
       - run: echo "This job has completed with status ${{ job.status }}."

@@ -28,6 +28,6 @@ jobs:
           tag_name: ${{ github.ref_name }}
           token: ${{ secrets.RELEASE_TOKEN }}
           generate_release_notes: true
-          body_path: release_body.md
+          body_path: RELEASE.md
           make_latest: true
       - run: echo "This job has completed with status ${{ job.status }}."
