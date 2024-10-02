@@ -49,7 +49,9 @@ public class CsvOrienteurs
     while (( chaine = monFichier . readLine ( )) != null )
     {
         ligne++;
-        tampon = chaine . trim ( ) . split ( ";" ) ;
+
+        // Delimit on semi-colons or commas to support both french and english style .csv files
+        tampon = chaine.trim().split(";|,");
         if(tampon.length > 1 )
         {
           try
@@ -81,13 +83,13 @@ public class CsvOrienteurs
       monFichier . close ( ) ;
       if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains rï¿½sultats n'ont pu ï¿½tre importï¿½s :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVï¿½rifiez que ces rï¿½sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rï¿½sultats", JOptionPane.OK_OPTION);
       }
     }
     catch (IOException e)
@@ -146,13 +148,13 @@ public class CsvOrienteurs
       monFichier . close ( ) ;
       if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains rï¿½sultats n'ont pu ï¿½tre importï¿½s :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVï¿½rifiez que ces rï¿½sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rï¿½sultats", JOptionPane.OK_OPTION);
       }
     }
     catch (IOException e)
