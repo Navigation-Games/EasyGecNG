@@ -39,6 +39,14 @@ Old releases can be found [here](https://www.navigationgames.org/about-3).
 ##### 1. JDK 8
   - Windows, Mac: Download and install the latest Java SE Development Kit from [here](https://www.oracle.com/java/technologies/javase/javase8u211-later-archive-downloads.html).
   - Linux: install `jdk8-openjdk` using your preferred package manager.
+> [!NOTE]
+> To run this app as a developer, you _must_ use a java version between 8 and 21. Check your java version with the command `java --version`. If the listed version is not acceptible, you have two ways to fix it.
+> - Uninstall all unacceptible java versions. This is the easiest, but most brute force option.
+> - Set your default java version.
+>   - Windows: Change the order of your PATH environment variable to list your prefered java location first. See an example guide [here](https://www.happycoders.eu/java/how-to-switch-multiple-java-versions-windows/).
+>   - Debian-likes: use [update-java-alternatives](https://manpages.ubuntu.com/manpages/focal/man8/update-java-alternatives.8.html) or [update-alternatives](https://man.archlinux.org/man/update-alternatives.1.en)
+>   - Arch-likes: use [archlinux-java](https://wiki.archlinux.org/title/Java#Switching_between_JVM)
+
 ##### 2. Drivers
   - Windows: [SportIdent Driver](https://www.sportident.com/products/96-software/161-usb-driver.html)
   - Mac: [CP210x Driver](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers)
