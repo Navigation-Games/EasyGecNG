@@ -119,7 +119,7 @@ public class CsvOrienteurs
     while (( chaine = monFichier . readLine ( )) != null )
     {
         ligne++;
-        tampon = chaine . trim ( ) . split ( ";" ) ;
+        tampon = chaine.trim().split(";|,");
         if(tampon.length > 1 )
         {
           try

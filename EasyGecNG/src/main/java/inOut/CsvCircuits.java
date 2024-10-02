@@ -50,7 +50,7 @@ public class CsvCircuits
     while (( chaine = monFichier . readLine ( )) != null )
     {
         //ligne++;
-        tampon = chaine . trim ( ) . split ( ";" ) ;
+        tampon = chaine.trim().split(";|,");
         
           Circuit r = new Circuit();
           r.setNom(tampon [ 0 ]);
@@ -68,13 +68,13 @@ public class CsvCircuits
       monFichier . close ( ) ;
       /*if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains rï¿½sultats n'ont pu ï¿½tre importï¿½s :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVï¿½rifiez que ces rï¿½sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rï¿½sultats", JOptionPane.OK_OPTION);
       }*/
     }
     catch (IOException e)
