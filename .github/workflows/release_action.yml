@@ -1,0 +1,33 @@
+# Automatically create main release from any new tags of the form v1.1.1
+
+name: AutoRelease
+run-name: Publishing release ${{ github.ref_name }} 🚀
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  AutoRelease:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job was triggered by event ${{ github.event_name }}"
+      - run: echo "This job is running on branch ${{ github.ref }} @ ${{ github.repository }}"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: ./gradlew -Pversion=${{ github.ref_name }} assembleDist
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            EasyGecNG/build/distributions/*.zip
+            EasyGecNG/build/distributions/*.tar
+            README.md
+          tag_name: ${{ github.ref_name }}
+          token: ${{ secrets.RELEASE_TOKEN }}
+          generate_release_notes: true
+          body_path: RELEASE.md
+          make_latest: true
+      - run: echo "This job has completed with status ${{ job.status }}."
