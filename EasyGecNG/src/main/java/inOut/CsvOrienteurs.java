@@ -88,12 +88,12 @@ public class CsvOrienteurs {
 
       monFichier.close();
       if (lignes.size() > 0) {
-        StringBuffer message = new StringBuffer("Certains r�sultats n'ont pu �tre import�s :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
         for (int i=0; i<lignes.size(); i++) {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nV�rifiez que ces r�sultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des r�sultats", JOptionPane.OK_OPTION);
+        message.append("\nVérifiez que ces résultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
       }
     } catch (IOException e) {
       JOptionPane.showMessageDialog(null,"Erreur d'import : "+e.getClass().getName()+", "+e.getMessage());
@@ -150,13 +150,13 @@ public class CsvOrienteurs {
       monFichier . close ( ) ;
       if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains r�sultats n'ont pu �tre import�s :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nV�rifiez que ces r�sultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des r�sultats", JOptionPane.OK_OPTION);
+        message.append("\nVérifiez que ces résultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
       }
     }
     catch (IOException e)
