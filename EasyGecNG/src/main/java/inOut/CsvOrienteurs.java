@@ -26,72 +26,76 @@ import metier.EasyGec;
  * @author thierry
  *
  */
-public class CsvOrienteurs
-{
+public class CsvOrienteurs {
   
-  public static void importer(EasyGec esg, String fichier)
-  {
+  public static void importer(EasyGec esg, String fichier) {
     
     File chemin = new File ( fichier ) ;
     String chaine ;
     String [ ] tampon ;
-    Vector<Integer> lignes = new Vector<Integer>();
+    Vector<Integer> lignes = new Vector<Integer>(); // vector of CSV lines that could not be processed
     int ligne = 1;
 
-    try
-    {
-    if (!chemin.exists())
-    {
-      chemin.createNewFile();
-    }
-    BufferedReader monFichier = new BufferedReader ( new FileReader ( chemin )) ;
-    monFichier . readLine ( );
-    while (( chaine = monFichier . readLine ( )) != null )
-    {
+    try {
+      // Why do this? should probably just return instead
+      if (!chemin.exists()) {
+        chemin.createNewFile();
+      }
+      BufferedReader monFichier = new BufferedReader( new FileReader( chemin )) ;
+      
+      // Discard the header line
+      monFichier.readLine();
+
+      while ((chaine= monFichier.readLine()) != null) {
         ligne++;
-        tampon = chaine . trim ( ) . split ( ";" ) ;
-        if(tampon.length > 1 )
-        {
-          try
-          {
-            Integer.parseInt(tampon [ 0 ]);
-            Orienteur r = new Orienteur();
-            r.setIdPuce(tampon [ 0 ]);
-            r.setNom(tampon [ 1 ]);
-            if(tampon.length>2)
-            {
-              r.setPrenom(tampon [ 2 ]);
-            }
-            for(int i=0; i<(tampon.length - 3); i++)
-            {
-                r.getDatas().add(tampon [ 3+i ]);
-            }
-            esg.getOrienteurs().addOrienteur(r);
-          }
-          catch (NumberFormatException e)
-          {
-            lignes.add(ligne);
-          }
-        }
-        else
+
+        // Delimit on semi-colons or commas to support both french and english style .csv files
+        tampon = chaine.trim().split(";|,");
+        
+        // Discard too-short lines
+        if (tampon.length <= 1 )
         {
           lignes.add(ligne);
+          continue;
         }
-    }
-      monFichier . close ( ) ;
-      if(lignes.size()>0)
-      {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
-        for(int i=0; i<lignes.size(); i++)
-        {
+
+        // Else, try to process line
+        try {
+          // Ensure first element is integer
+          Integer.parseInt(tampon[0]);
+
+          // Set Orienteer ID and names
+          Orienteur r = new Orienteur();
+          r.setIdPuce(tampon[0]);
+          r.setNom(tampon[1]);
+          if (tampon.length>2)
+          {
+            r.setPrenom(tampon [ 2 ]);
+          }
+
+          // Add remaining elements to orienteer datas
+          for (int i=3; i<tampon.length; i++)
+          {
+              r.getDatas().add(tampon [ i ]);
+          }
+
+          // Register Orienteer
+          esg.getOrienteurs().addOrienteur(r);
+        } catch (NumberFormatException e) {
+          lignes.add(ligne);
+        }
+      }
+
+      monFichier.close();
+      if (lignes.size() > 0) {
+        StringBuffer message = new StringBuffer("Certains rÃ©sultats n'ont pu Ãªtre importÃ©s :\nLignes ");
+        for (int i=0; i<lignes.size(); i++) {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVÃ©rifiez que ces rÃ©sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rÃ©sultats", JOptionPane.OK_OPTION);
       }
-    }
-    catch (IOException e)
-    {
+    } catch (IOException e) {
       JOptionPane.showMessageDialog(null,"Erreur d'import : "+e.getClass().getName()+", "+e.getMessage());
       return;
     }
@@ -117,7 +121,7 @@ public class CsvOrienteurs
     while (( chaine = monFichier . readLine ( )) != null )
     {
         ligne++;
-        tampon = chaine . trim ( ) . split ( ";" ) ;
+        tampon = chaine.trim().split(";|,");
         if(tampon.length > 1 )
         {
           try
@@ -146,13 +150,13 @@ public class CsvOrienteurs
       monFichier . close ( ) ;
       if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains rÃ©sultats n'ont pu Ãªtre importÃ©s :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVÃ©rifiez que ces rÃ©sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rÃ©sultats", JOptionPane.OK_OPTION);
       }
     }
     catch (IOException e)
