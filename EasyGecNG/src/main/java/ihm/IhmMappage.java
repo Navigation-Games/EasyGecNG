@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import javax.swing.JTable;
 
 import metier.EasyGec;
+import outils.DesktopApi;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -119,15 +120,13 @@ public class IhmMappage extends javax.swing.JDialog
       public void actionPerformed(ActionEvent e) 
       {
         CsvMappageCourant.exporter(easyGec, easyGec.getMappagesCourant().getNom() + ".csv");
-        // Lancement du fichier
-        Runtime r = Runtime.getRuntime();
         
         try
         {
           // Lancement du fichier d'aide de l'application
           String adresse = new File(".").getCanonicalPath().toString();
-          adresse = "cmd /c start \"\" \"" + adresse + "/" + easyGec.getMappagesCourant().getNom() + ".csv" +"\"";
-          r.exec(adresse);
+          adresse = adresse + "/" + easyGec.getMappagesCourant().getNom() + ".csv";
+          DesktopApi.edit(new File(adresse));
         }
         catch (IOException e1)
         {

@@ -59,6 +59,7 @@ import outils.FiltreFichier;
 import outils.Outils;
 import outils.TaskBoutonOkNok;
 import outils.TimeManager;
+import outils.DesktopApi;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -940,21 +941,9 @@ public class IhmEasyGec extends JFrame
     {
       public void actionPerformed(ActionEvent arg0) 
       {
-        //enregistreResultats();
-        // Lancement du fichier
-        Runtime r = Runtime.getRuntime();
-        
-        try
-        {
-          // Lancement du fichier d'aide de l'application
-          String adresse = new File(".").getCanonicalPath().toString();
-          adresse = "cmd /c start \"\" \""  + easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("114", EasyGec.getLang()) + ".html" +"\"";
-          r.exec(adresse);
-        }
-        catch (IOException e1)
-        {
-          JOptionPane.showMessageDialog(null,"Erreur de lancement du fichier : "+e1.getClass().getName());
-        }
+        // Lancement du fichier d'aide de l'application
+        String adresse = easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("114", EasyGec.getLang()) + ".html";
+        DesktopApi.edit(new File(adresse));
       }
     });
     
@@ -1002,19 +991,8 @@ public class IhmEasyGec extends JFrame
       public void actionPerformed(ActionEvent e) 
       {
         // Lancement du fichier
-        Runtime r = Runtime.getRuntime();
-        
-        try
-        {
-          // Lancement du fichier d'aide de l'application
-          String adresse = new File(".").getCanonicalPath().toString();
-          adresse = "cmd /c start \"\" \""  + easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("113", EasyGec.getLang()) + ".html" +"\"";
-          r.exec(adresse);
-        }
-        catch (IOException e1)
-        {
-          JOptionPane.showMessageDialog(null,"Erreur de lancement du fichier : "+e1.getClass().getName());
-        }
+        String adresse = easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("113", EasyGec.getLang()) + ".html";
+        DesktopApi.edit(new File(adresse));
       }
     });
     btnResultatsGlobaux.setIcon(new ImageIcon(IhmEasyGec.class.getResource("/icones/podium.png")));
@@ -1026,20 +1004,9 @@ public class IhmEasyGec extends JFrame
     {
       public void actionPerformed(ActionEvent e) 
       {
-        // Lancement du fichier
-        Runtime r = Runtime.getRuntime();
-        
-        try
-        {
-          // Lancement du fichier d'aide de l'application
-          String adresse = new File(".").getCanonicalPath().toString();
-          adresse = "cmd /c start \"\" \""  + easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("115", EasyGec.getLang()) + ".html" +"\"";
-          r.exec(adresse);
-        }
-        catch (IOException e1)
-        {
-          JOptionPane.showMessageDialog(null,"Erreur de lancement du fichier : "+e1.getClass().getName());
-        }
+        // Lancement du fichier d'aide de l'application
+        String adresse = easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("115", EasyGec.getLang()) + ".html";
+        DesktopApi.edit(new File(adresse));
       }
     });
     btnResultatsDetailled.setIcon(new ImageIcon(IhmEasyGec.class.getResource("/icones/chrono.png")));
@@ -1055,22 +1022,9 @@ public class IhmEasyGec extends JFrame
     {
       public void actionPerformed(ActionEvent arg0) 
       {
-        //enregistreResultatsDetailles();
-
-        // Lancement du fichier
-        Runtime r = Runtime.getRuntime();
-        
-        try
-        {
-          // Lancement du fichier d'aide de l'application
-          String adresse = new File(".").getCanonicalPath().toString();
-          adresse = "cmd /c start \"\" \""  + easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("117", EasyGec.getLang()) + ".html" +"\"";
-          r.exec(adresse);
-        }
-        catch (IOException e1)
-        {
-          JOptionPane.showMessageDialog(null,"Erreur de lancement du fichier : "+e1.getClass().getName());
-        }
+        // Lancement du fichier d'aide de l'application
+        String adresse = easyGec.getFichier().substring(0, easyGec.getFichier().length()-4) + EasyGec.getLangages().getText("117", EasyGec.getLang()) + ".html";
+        DesktopApi.edit(new File(adresse));
       }
     });
     panel.add(btnExportPartiels);
@@ -1128,14 +1082,12 @@ public class IhmEasyGec extends JFrame
     {
       public void actionPerformed(ActionEvent arg0) 
       {
-        Runtime r = Runtime.getRuntime();
-        
         try
         {
           // Lancement du fichier d'aide de l'application
           String adresse = new File(".").getCanonicalPath().toString();
-          adresse = "cmd /c start \"\" \"" + adresse + "/" + EasyGec.getLangages().getText("0", EasyGec.getLang()) +"\"";
-          r.exec(adresse);
+          adresse = adresse + "/" + EasyGec.getLangages().getText("0", EasyGec.getLang());
+          DesktopApi.edit(new File(adresse));
         }
         catch (IOException e1)
         {
