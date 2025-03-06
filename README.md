@@ -29,9 +29,18 @@ If you are not a developer, please install EasyGecNG using these steps.
       - `sudo usermod -a -G dialout $USER` on debian-likes (Ubuntu, etc)
       - `sudo usermod -a -G uucp $USER` on arch-likes (Arch, Manjaro, etc)
     - Restart, then check that the `uucp/dialout` appears in the results of the `groups` command.
-##### 3. Install EasyGec
-- Grab the latest [release](https://github.com/Navigation-Games/EasyGecNG/releases).
-- Alternatively, find old releases [here](https://www.navigationgames.org/about-3).
+##### 3. Download EasyGec .Zip File
+- Download the latest [release](https://github.com/Navigation-Games/EasyGecNG/releases) by clicking "**EasyGecNG-v1.1.0.zip**"
+  - Alternatively, find old releases [here](https://www.navigationgames.org/about-3).
+##### 4. Extract the .Zip File
+- Here are instructions on [how to unzip/extract a .zip file](https://www.geeksforgeeks.org/how-to-unzip-files-in-windows-and-mac/). 
+- This should create a new folder without the ".zip" in the name.
+##### 5. Go into the bin folder
+- Inside the new folder, open the "bin" folder.
+##### 6. Double-click bin/EasyGecNG.bat
+- To run EasyGec, double-click the .bat file.
+
+Congratulations! You should now see the EasyGec app pop up.
 
 
 # Developer Installation Instructions
