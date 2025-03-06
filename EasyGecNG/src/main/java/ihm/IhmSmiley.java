@@ -111,15 +111,15 @@ public class IhmSmiley extends JDialog
     //Set South label
     if(okCourse==1)
     { //missed start
-      lblTime.setText("Missed Start Checkpoint");
+      lblTime.setText("Missed Start");
     }
     else if(okCourse==2)
     { //missed finish
-      lblTime.setText("Missed Finish Checkpoint");
+      lblTime.setText("Missed Finish");
     }
     else if(okCourse==3)
     { //missed start and finish
-      lblTime.setText("Missed Start and Finish Checkpoints");
+      lblTime.setText("Missed Start and Finish");
     }
     else {
       if(temps.compareTo("0:00:00")!=0)
@@ -159,7 +159,12 @@ public class IhmSmiley extends JDialog
       Font currentFont = editorPane.getFont();
       Font font = currentFont.deriveFont(48f);
       editorPane.setFont(font);
-      editorPane.setText(courseName+ "\n________\nMissed\nControls:\n" + missedStr);
+
+      if (numberMissed > 1) {
+        editorPane.setText(courseName+ "\n________\nMissed\nControls:\n" + missedStr);
+      } else {
+        editorPane.setText(courseName+ "\n________\nMissed\nControl:\n" + missedStr);
+      }
     }
     catch (Exception et)
     {
