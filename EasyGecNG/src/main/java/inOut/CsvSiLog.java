@@ -50,7 +50,7 @@ public class CsvSiLog
     }
     BufferedReader monFichier = new BufferedReader ( new FileReader ( chemin )) ;
     chaine = monFichier . readLine ( );
-    tampon = chaine . trim ( ) . split ( ";" ) ;
+    tampon = chaine.trim().split(";|,");
     if(tampon[0].compareTo("No")==0)
     {
       siConfigPlus = true;
@@ -60,7 +60,7 @@ public class CsvSiLog
       while (( chaine = monFichier . readLine ( )) != null )
       {
           ligne++;
-          tampon = chaine . trim ( ) . split ( ";" ) ;
+          tampon = chaine.trim().split(";|,");
           if(tampon.length > 1 )
           {
             try
@@ -99,7 +99,7 @@ public class CsvSiLog
       while (( chaine = monFichier . readLine ( )) != null )
       {
           ligne++;
-          tampon = chaine . trim ( ) . split ( ";" ) ;
+          tampon = chaine.trim().split(";|,");
           if(tampon.length > 1 )
           {
             try
@@ -136,13 +136,13 @@ public class CsvSiLog
       monFichier . close ( ) ;
       if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains rÃ©sultats n'ont pu Ãªtre importÃ©s :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVÃ©rifiez que ces rÃ©sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rÃ©sultats", JOptionPane.OK_OPTION);
       }
     }
     catch (IOException e)
