@@ -21,6 +21,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 
 import javax.swing.JFrame;
@@ -82,7 +83,7 @@ public class IhmEasyGec extends JFrame
    */
   private static final long serialVersionUID = -4824746389076523212L;
   public EasyGec easyGec = null;
-  public boolean autoResult = false;
+  public boolean autoResult = true;
   private Integer[] codes = new Integer[225];
   private Integer[] tempos = {2, 3, 4, 5, 10, 15, 20};
   private JPanel contentPane;
@@ -1164,25 +1165,22 @@ public class IhmEasyGec extends JFrame
     panel_9 = new JPanel();
     panel_9.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Param\u00E8tres", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
     panelNord.add(panel_9);
+
+    HashMap<Boolean, ImageIcon>autoResultIcon = new HashMap<Boolean, ImageIcon>() {{
+      put(false, new ImageIcon(IhmEasyGec.class.getResource("/icones/ihm.png")));
+      put(true, new ImageIcon(IhmEasyGec.class.getResource("/icones/smiley.png")));
+    }};
     
     btnMode = new JButton("");
     btnMode.addActionListener(new ActionListener() 
     {
       public void actionPerformed(ActionEvent e) 
       {
-        if(autoResult)
-        {
-          btnMode.setIcon(new ImageIcon(IhmEasyGec.class.getResource("/icones/ihm.png")));
-          autoResult = false;
-        }
-        else
-        {
-          btnMode.setIcon(new ImageIcon(IhmEasyGec.class.getResource("/icones/smiley.png")));
-          autoResult = true;
-        }
+        autoResult = !autoResult;
+        btnMode.setIcon(autoResultIcon.get(autoResult));
       }
     });
-    btnMode.setIcon(new ImageIcon(IhmEasyGec.class.getResource("/icones/ihm.png")));
+    btnMode.setIcon(autoResultIcon.get(autoResult));
     btnMode.setToolTipText("Basculer de mode de lecture des puces.");
     btnMode.setPreferredSize(new Dimension(32, 32));
     panel_9.add(btnMode);
