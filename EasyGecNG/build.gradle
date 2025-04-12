@@ -47,7 +47,8 @@ dependencies {
     implementation 'jdom:jdom:1.+'
     implementation 'junit:junit:4.13'
     implementation 'org.mockito:mockito-core:1.9.+'
-    
+    implementation 'com.univocity:univocity-parsers:2.9.1'
+
     // TODO: need to migrate GecoSI to JSerialComm?
     // This is pulled from source defined in settings.gradle
     implementation 'net.gecosi:lib:1.+'

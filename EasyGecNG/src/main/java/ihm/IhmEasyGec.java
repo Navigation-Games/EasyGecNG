@@ -697,6 +697,7 @@ public class IhmEasyGec extends JFrame
         JFileChooser chooser = new JFileChooser();
         FiltreFichier filter = new FiltreFichier();
         filter.addExtension("csv");
+        filter.addExtension("ssv");
         filter.setDescription("Fichiers csv");
         chooser.setFileFilter(filter);
         chooser.setCurrentDirectory(new File(easyGec.getRepertoire()));
@@ -960,6 +961,8 @@ public class IhmEasyGec extends JFrame
     });
     
     btnImportCircuitAbc = new JButton();
+
+    // Why is this button disabled?
     btnImportCircuitAbc.setVisible(false);
     btnImportCircuitAbc.addActionListener(new ActionListener() 
     {

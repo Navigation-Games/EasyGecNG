@@ -136,13 +136,13 @@ public class CsvSiLog
       monFichier . close ( ) ;
       if(lignes.size()>0)
       {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+        StringBuffer message = new StringBuffer("Certains rÃ©sultats n'ont pu Ãªtre importÃ©s :\nLignes ");
         for(int i=0; i<lignes.size(); i++)
         {
           message.append(lignes.get(i)+",");
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        message.append("\nVÃ©rifiez que ces rÃ©sultats ont une puce valide.");
+        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des rÃ©sultats", JOptionPane.OK_OPTION);
       }
     }
     catch (IOException e)
