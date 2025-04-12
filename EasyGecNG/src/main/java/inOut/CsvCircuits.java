@@ -50,7 +50,7 @@ public class CsvCircuits
     while (( chaine = monFichier . readLine ( )) != null )
     {
         //ligne++;
-        tampon = chaine.trim().split(";|,");
+        tampon = chaine . trim ( ) . split ( ";" ) ;
         
           Circuit r = new Circuit();
           r.setNom(tampon [ 0 ]);

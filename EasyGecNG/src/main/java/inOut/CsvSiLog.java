@@ -50,7 +50,7 @@ public class CsvSiLog
     }
     BufferedReader monFichier = new BufferedReader ( new FileReader ( chemin )) ;
     chaine = monFichier . readLine ( );
-    tampon = chaine.trim().split(";|,");
+    tampon = chaine . trim ( ) . split ( ";" ) ;
     if(tampon[0].compareTo("No")==0)
     {
       siConfigPlus = true;
@@ -60,7 +60,7 @@ public class CsvSiLog
       while (( chaine = monFichier . readLine ( )) != null )
       {
           ligne++;
-          tampon = chaine.trim().split(";|,");
+          tampon = chaine . trim ( ) . split ( ";" ) ;
           if(tampon.length > 1 )
           {
             try
@@ -99,7 +99,7 @@ public class CsvSiLog
       while (( chaine = monFichier . readLine ( )) != null )
       {
           ligne++;
-          tampon = chaine.trim().split(";|,");
+          tampon = chaine . trim ( ) . split ( ";" ) ;
           if(tampon.length > 1 )
           {
             try
