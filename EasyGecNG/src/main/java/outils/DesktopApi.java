@@ -14,14 +14,14 @@ public class DesktopApi {
         // Try system-specific, then awt.Desktop
         return openSystemSpecific(uri.toString()) || browseDESKTOP(uri);
     }
-    
-    
+
+
     public static boolean open(File file) {
         // Try system-specific, then awt.Desktop
         return openSystemSpecific(file.getPath()) || openDESKTOP(file);
     }
-    
-    
+
+
     public static boolean edit(File file) {
         // Try system-specific, then awt.Desktop
 
@@ -56,12 +56,16 @@ public class DesktopApi {
 
 
     private static boolean browseDESKTOP(URI uri) {
+
+        logOut("Trying to use Desktop.getDesktop().browse() with " + uri.toString());
         try {
             if (!Desktop.isDesktopSupported()) {
+                logErr("Platform is not supported.");
                 return false;
             }
 
             if (!Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                logErr("BROWSE is not supported.");
                 return false;
             }
 
@@ -69,6 +73,7 @@ public class DesktopApi {
 
             return true;
         } catch (Throwable t) {
+            logErr("Error using desktop browse.", t);
             return false;
         }
     }
@@ -76,12 +81,15 @@ public class DesktopApi {
 
     private static boolean openDESKTOP(File file) {
 
+        logOut("Trying to use Desktop.getDesktop().open() with " + file.toString());
         try {
             if (!Desktop.isDesktopSupported()) {
+                logErr("Platform is not supported.");
                 return false;
             }
 
             if (!Desktop.getDesktop().isSupported(Desktop.Action.OPEN)) {
+                logErr("OPEN is not supported.");
                 return false;
             }
 
@@ -89,6 +97,7 @@ public class DesktopApi {
 
             return true;
         } catch (Throwable t) {
+            logErr("Error using desktop open.", t);
             return false;
         }
     }
@@ -96,12 +105,15 @@ public class DesktopApi {
 
     private static boolean editDESKTOP(File file) {
 
+        logOut("Trying to use Desktop.getDesktop().edit() with " + file);
         try {
             if (!Desktop.isDesktopSupported()) {
+                logErr("Platform is not supported.");
                 return false;
             }
 
             if (!Desktop.getDesktop().isSupported(Desktop.Action.EDIT)) {
+                logErr("EDIT is not supported.");
                 return false;
             }
 
@@ -109,12 +121,15 @@ public class DesktopApi {
 
             return true;
         } catch (Throwable t) {
+            logErr("Error using desktop edit.", t);
             return false;
         }
     }
 
 
     private static boolean runCommand(String command, String args, String file) {
+
+        logOut("Trying to exec:\n   cmd = " + command + "\n   args = " + args + "\n   %s = " + file);
 
         String[] parts = prepareCommand(command, args, file);
 
@@ -125,14 +140,18 @@ public class DesktopApi {
             try {
                 int retval = p.exitValue();
                 if (retval == 0) {
+                    logErr("Process ended immediately.");
                     return false;
                 } else {
+                    logErr("Process crashed.");
                     return false;
                 }
             } catch (IllegalThreadStateException itse) {
+                logErr("Process is running.");
                 return true;
             }
         } catch (IOException e) {
+            logErr("Error running command.", e);
             return false;
         }
     }
@@ -152,6 +171,19 @@ public class DesktopApi {
         }
 
         return parts.toArray(new String[parts.size()]);
+    }
+
+    private static void logErr(String msg, Throwable t) {
+        System.err.println(msg);
+        t.printStackTrace();
+    }
+
+    private static void logErr(String msg) {
+        System.err.println(msg);
+    }
+
+    private static void logOut(String msg) {
+        System.out.println(msg);
     }
 
     public static enum EnumOS {
