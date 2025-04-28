@@ -697,7 +697,7 @@ public class IhmEasyGec extends JFrame
         FiltreFichier filter = new FiltreFichier();
         filter.addExtension("csv");
         filter.addExtension("ssv");
-        filter.setDescription("Fichiers csv");
+        filter.setDescription("CSV Files");
         chooser.setFileFilter(filter);
         chooser.setCurrentDirectory(new File(easyGec.getRepertoire()));
         

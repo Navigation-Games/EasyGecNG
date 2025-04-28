@@ -32,125 +32,75 @@ import com.univocity.parsers.csv.CsvParserSettings;
  */
 public class CsvOrienteurs {
   
-  public static void importer(EasyGec esg, String fichier) {
+  public static void importer(EasyGec esg, String filepath) {
     
-    File chemin = new File(fichier);
-    String chaine;
-    String[] tampon;
-    Vector<Integer> lignes = new Vector<Integer>(); // vector of CSV lines that could not be processed
-    int ligne = 1;
-
-    if (!chemin.exists()) {
-      // chemin.createNewFile();
-      JOptionPane.showMessageDialog(null, "File does not exist : " + chemin);
+    File file = new File(filepath);
+    Vector<Integer> linesNotProcessed = new Vector<Integer>(); // vector of CSV lines that could not be processed
+    
+    if (!file.exists()) {
+      JOptionPane.showMessageDialog(null, "File does not exist : " + file);
       return;
     }
 
-    try {
-      BufferedReader monFichier = new BufferedReader( new FileReader( chemin )) ;
-      
-      
+    
+    // Create a CSV parser with autodetection enabled
+    CsvParserSettings settings = new CsvParserSettings();
+    settings.detectFormatAutomatically();
+    CsvParser parser = new CsvParser(settings);
 
-      // Create a CSV parser with default settings
-      CsvParserSettings settings = new CsvParserSettings();
-      settings.detectFormatAutomatically();
+    // Parse file
+    List<String[]> rows = parser.parseAll(file);
 
-      CsvParser parser = new CsvParser(settings);
-      List<String[]> rows = parser.parseAll(chemin);
+    System.out.println(parser.getDetectedFormat());
 
-      System.out.println(parser.getDetectedFormat());
+    // Iterate through rows, skipping the header
+    for (int i = 1; i<rows.size(); i++) {
+      String[] row = rows.get(i);
 
-      // Iterate through rows, skipping the header
-      for (int i = 1; i<rows.size(); i++) {
-        String[] row = rows.get(i);
-
-        // Entries must have at least two fields - ID and name
-        if (row.length < 2 ) {
-          lignes.add(ligne);
-          continue;
-        }
-
-        try {
-
-          // Ensure the first element is an int
-          Integer.parseInt(row[0]);
-
-          // Set Orienteer ID and names
-          Orienteur orienteer = new Orienteur();
-          orienteer.setIdPuce(row[0]);
-          orienteer.setNom(row[1]);
-          if (row.length>2) {
-            orienteer.setPrenom(row[2]);
-          }
-          
-          // Add remaining elements to orienteer datas
-          for (int j=3; j<row.length; j++) {
-            orienteer.getDatas().add(row[j]);
-          }
-          
-          // Register the orienteer
-          esg.getOrienteurs().addOrienteur(orienteer);
-
-        } catch (NumberFormatException e) {
-          lignes.add(ligne);
-        }
+      // Entries must have at least two fields - ID and name
+      if (row.length < 2 ) {
+        linesNotProcessed.add(i);
+        continue;
       }
-      
 
+      try {
 
-      // Discard the header line
-      // monFichier.readLine();
+        // Ensure the first element is an int
+        Integer.parseInt(row[0]);
 
-      // while ((chaine= monFichier.readLine()) != null) {
-      //   ligne++;
-
-      //   // Delimit on semi-colons or commas to support both french and english style .csv files
-      //   tampon = chaine.trim().split(";|,");
+        // Set Orienteer ID and names
+        Orienteur orienteer = new Orienteur();
+        orienteer.setIdPuce(row[0]);
+        orienteer.setNom(row[1]);
+        if (row.length>2) {
+          orienteer.setPrenom(row[2]);
+        }
         
-      //   // Discard too-short lines
-      //   if (tampon.length <= 1 ) {
-      //     lignes.add(ligne);
-      //     continue;
-      //   }
-
-      //   // Else, try to process line
-      //   try {
-      //     // Ensure first element is integer
-      //     Integer.parseInt(tampon[0]);
-
-      //     // Set Orienteer ID and names
-      //     Orienteur r = new Orienteur();
-      //     r.setIdPuce(tampon[0]);
-      //     r.setNom(tampon[1]);
-      //     if (tampon.length>2) {
-      //       r.setPrenom(tampon [ 2 ]);
-      //     }
-
-      //     // Add remaining elements to orienteer datas
-      //     for (int i=3; i<tampon.length; i++) {
-      //         r.getDatas().add(tampon [ i ]);
-      //     }
-
-      //     // Register Orienteer
-      //     esg.getOrienteurs().addOrienteur(r);
-      //   } catch (NumberFormatException e) {
-      //     lignes.add(ligne);
-      //   }
-      // }
-
-      monFichier.close();
-      if (lignes.size() > 0) {
-        StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
-        for (int i=0; i<lignes.size(); i++) {
-          message.append(lignes.get(i)+",");
+        // Add remaining elements to orienteer datas
+        for (int j=3; j<row.length; j++) {
+          orienteer.getDatas().add(row[j]);
         }
-        message.append("\nVérifiez que ces résultats ont une puce valide.");
-        JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+        
+        // Register the orienteer
+        esg.getOrienteurs().addOrienteur(orienteer);
+
+      } catch (NumberFormatException e) {
+        linesNotProcessed.add(i);
       }
-    } catch (IOException e) {
-      JOptionPane.showMessageDialog(null,"Erreur d'import : "+e.getClass().getName()+", "+e.getMessage());
-      return;
     }
+    
+    // Show errored lines
+    if (linesNotProcessed.size() > 0) {
+      StringBuffer message = new StringBuffer("Certains résultats n'ont pu être importés :\nLignes ");
+      
+      for (int line : linesNotProcessed) {
+        message.append(line + ", ");
+      }
+      
+      message.append("\nVérifiez que ces résultats ont une puce valide.");
+      JOptionPane.showMessageDialog(esg.getIhm(), message.toString(), "Import des résultats", JOptionPane.OK_OPTION);
+    }
+    
   }
   
   public static void importerSi(EasyGec esg, String fichier) {
