@@ -40,3 +40,6 @@ build
 
 # Generated files
 config.xml
+
+# Sandbox
+*sandbox*

@@ -56,7 +56,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'ihm.IhmEasyGec'
+    mainClass = 'ui.UiEasyGec'
 }
 
 tasks.named('test') {

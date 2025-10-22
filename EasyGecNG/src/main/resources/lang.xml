@@ -50,11 +50,11 @@
 			<text>Verseny adatai</text>
 		</string>
 		<string id="5">
-			<text>Circuits</text>
+			<text>Courses</text>
 			<text>Courses</text>
 			<text>Omlopen</text>
 			<text>Bahnen</text>
-			<text>Circuitos</text>
+			<text>Courseos</text>
 			<text>Pályák</text>
 		</string>
 		<string id="6">
@@ -82,7 +82,7 @@
 			<text>Pályák típusa</text>
 		</string>
 		<string id="9">
-			<text>Orienteurs</text>
+			<text>Orienteers</text>
 			<text>Orienteers</text>
 			<text>Lopers</text>
 			<text>Orientierer</text>
@@ -242,7 +242,7 @@
 			<text>Váltás a manuális/automatikus kiolvasási mód között</text>
 		</string>
 		<string id="29">
-			<text>Changer de langage</text>
+			<text>Changer de Language</text>
 			<text>Change language</text>
 			<text>Taal wijzingen</text>
 			<text>Sprache wechseln</text>
@@ -412,7 +412,7 @@
 		<string id="50">
 			<text>Associer les résultats aux orienteurs</text>
 			<text>Associate the results to the orienteers</text>
-			<text>Resultaten en lopers verbinden</text>
+			<text>Resulten en lopers verbinden</text>
 			<text>Ergebnisse den Orientierern zuweisen</text>
 			<text>Asociar resultados con orientadores</text>
 			<text>Eredmény hozzárendelése versenyzőhöz</text>
@@ -474,7 +474,7 @@
 			<text>EasyGec, szoftver tájfutó edzésekhez és egyéb rendezvényekhez.</text>
 		</string>
 		<string id="58">
-			<text>Choix du langage</text>
+			<text>Choix du Language</text>
 			<text>Select the language</text>
 			<text>Taal aanpassen</text>
 			<text>Sprache wählen</text>
@@ -482,7 +482,7 @@
 			<text>Nyelv kiválasztása</text>
 		</string>
 		<string id="59">
-			<text>Sélectionnez un langage :</text>
+			<text>Sélectionnez un Language :</text>
 			<text>Select a language :</text>
 			<text>Kies een taal :</text>
 			<text>Sprache wählen :</text>
@@ -514,7 +514,7 @@
 			<text>Vezetéknév:</text>
 		</string>
 		<string id="63">
-			<text>Puce :</text>
+			<text>Chip :</text>
 			<text>Si-card :</text>
 			<text>Si-card :</text>
 			<text>SI-Karte :</text>
@@ -733,7 +733,7 @@
 			<text>Nouveau résultat</text>
 			<text>New result</text>
 			<text>Nieuw resultaat</text>
-			<text>Neue Resultate</text>
+			<text>Neue Resulte</text>
 			<text>Nuevo resultado</text>
 			<text>Új eredmény</text>
 		</string>
@@ -741,7 +741,7 @@
 			<text>Valider le résultat</text>
 			<text>Validate the result</text>
 			<text>Resultaat opslaan</text>
-			<text>Resultate speichern</text>
+			<text>Resulte speichern</text>
 			<text>Validar el resultado</text>
 			<text>Eredmény jóváhagyása</text>
 		</string>
@@ -749,7 +749,7 @@
 			<text>Valider et imprimer le résultat</text>
 			<text>Validate and print the result</text>
 			<text>Resultaat opslaan en afdrukken</text>
-			<text>Resultate speichern und drucken</text>
+			<text>Resulte speichern und drucken</text>
 			<text>Validar e imprimir el resultado</text>
 			<text>Jóváhagyás és eredmény nyomtatása</text>
 		</string>
@@ -757,7 +757,7 @@
 			<text>Imprimer le résultat</text>
 			<text>Print the result</text>
 			<text>Resultaat afdrukken</text>
-			<text>Resultate drucken</text>
+			<text>Resulte drucken</text>
 			<text>Imprimir el resultado</text>
 			<text>Eredmény nyomtatása</text>
 		</string>
@@ -765,7 +765,7 @@
 			<text>Annuler le résultat</text>
 			<text>Cancel the result</text>
 			<text>Resultaat verwijderen</text>
-			<text>Resultate speichern</text>
+			<text>Resulte speichern</text>
 			<text>Cancelar el resultado</text>
 			<text>Eredmény mellőzése</text>
 		</string>
@@ -773,7 +773,7 @@
 			<text>Résultat</text>
 			<text>Result</text>
 			<text>Resultaat</text>
-			<text>Resultate</text>
+			<text>Resulte</text>
 			<text>Resultado</text>
 			<text>Eredmény</text>
 		</string>
@@ -786,18 +786,18 @@
 			<text>ID:</text>
 		</string>
 		<string id="97">
-			<text>Circuit :</text>
+			<text>Course :</text>
 			<text>Course :</text>
 			<text>Omloop :</text>
 			<text>Bahn :</text>
-			<text>Circuito :</text>
+			<text>Courseo :</text>
 			<text>Pálya:</text>
 		</string>
 		<string id="98">
 			<text>Recharger les résultats</text>
 			<text>Reload the results</text>
-			<text>Resultaten heropenen</text>
-			<text>Resultate neu laden</text>
+			<text>Resulten heropenen</text>
+			<text>Resulte neu laden</text>
 			<text>Recargar los resultados</text>
 			<text>Eredmények újratöltése</text>
 		</string>
@@ -826,7 +826,7 @@
 			<text>Idő</text>
 		</string>
 		<string id="102">
-			<text>Partiel</text>
+			<text>Split</text>
 			<text>Split time</text>
 			<text>Tussentijd</text>
 			<text>Zwischenzeit</text>
@@ -914,7 +914,7 @@
 			<text>ABC</text>
 		</string>
 		<string id="113">
-			<text>_Resultats_Globaux</text>
+			<text>_Results_Globaux</text>
 			<text>_global_results</text>
 			<text>_global_results</text>
 			<text>_global_results</text>
@@ -922,7 +922,7 @@
 			<text>_global_results</text>
 		</string>
 		<string id="114">
-			<text>_Resultats_Par_Identifiant</text>
+			<text>_Results_Par_Identifiant</text>
 			<text>_results_per_runner</text>
 			<text>_results_per_runner</text>
 			<text>_results_per_runner</text>
@@ -930,7 +930,7 @@
 			<text>_results_per_runner</text>
 		</string>
 		<string id="115">
-			<text>_Resultats_Détaillés</text>
+			<text>_Results_Détaillés</text>
 			<text>_detailed_results</text>
 			<text>_detailed_results</text>
 			<text>_detailed_results</text>
@@ -938,7 +938,7 @@
 			<text>_detailed_results</text>
 		</string>
 		<string id="116">
-			<text>_Resultats_Par_Identifiant</text>
+			<text>_Results_Par_Identifiant</text>
 			<text>_results_per_runner</text>
 			<text>_results_per_runner</text>
 			<text>_results_per_runner</text>
@@ -946,7 +946,7 @@
 			<text>_results_per_runner</text>
 		</string>
 		<string id="117">
-			<text>_Resultats_Détaillés_Par_Identifiant</text>
+			<text>_Results_Détaillés_Par_Identifiant</text>
 			<text>_detailed_results_per_runner</text>
 			<text>_detailed_results_per_runner</text>
 			<text>_detailed_results_per_runner</text>
@@ -972,7 +972,7 @@
 		<string id="120">
 			<text>Effacer les résultats</text>
 			<text>Delete results</text>
-			<text>Resultaten wissen</text>
+			<text>Resulten wissen</text>
 			<text>Klare Ergebnisse</text>
 			<text>Borrar resultados</text>
 			<text>Eredmények törlése</text>

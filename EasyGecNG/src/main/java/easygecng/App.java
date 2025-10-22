@@ -3,7 +3,7 @@
  */
 package easygecng;
 
-import metier.SIReaderHandler;
+import core.SIReaderHandler;
 
 public class App {
     public String getGreeting() {
