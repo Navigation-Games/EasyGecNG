@@ -68,7 +68,7 @@ public class IhmSmiley extends JDialog
         }
       }
     });
-    btnNewButton.setIcon(new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-good-green.png")));
+    btnNewButton.setIcon(new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-good-pumpkin.png")));
     getContentPane().add(btnNewButton, BorderLayout.CENTER);
 
     setSize(dimEcran.width, dimEcran.height);
@@ -76,18 +76,21 @@ public class IhmSmiley extends JDialog
     if(okCourse==0){
       if(numberMissed<1)
       {
-        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-good-green.png"));
+        // icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-good-green.png"));
+        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-good-pumpkin.png"));
       }
       else
       {
         //https://freesvg.org/vector-image-of-purple-dazed-smiley
-        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-surprised.png"));
+        // icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-surprised.png"));
+        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-surprised-zombie.png"));
       }
     }
     else
     { //missed start or finish
       //https://freesvg.org/yellow-smiley-with-neutral-face-illustration
-      icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-late.png"));
+      // icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-late.png"));
+      icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-late-ghost.png"));
     }
     Image img = icon.getImage();
     Image newimg = img.getScaledInstance(btnNewButton.getSize().width, btnNewButton.getSize().height, java.awt.Image.SCALE_SMOOTH);
