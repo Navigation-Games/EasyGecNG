@@ -27,6 +27,7 @@ public class IhmSmiley extends JDialog
   public AudioClip applause = Applet.newAudioClip(getClass().getResource("/sons/applause.wav"));
   public AudioClip encouragement = Applet.newAudioClip(getClass().getResource("/sons/encouragement.wav"));
   public AudioClip ohno = Applet.newAudioClip(getClass().getResource("/sons/ohno.wav"));
+  public AudioClip boo = Applet.newAudioClip(getClass().getResource("/sons/boo.wav"));
   public static Dimension dimEcran = Toolkit.getDefaultToolkit().getScreenSize(); // r�cup�ration de la dimension de l'�cran  //  @jve:decl-index=0:
   private ImageIcon icon;
   private JEditorPane editorPane;
@@ -68,7 +69,7 @@ public class IhmSmiley extends JDialog
         }
       }
     });
-    btnNewButton.setIcon(new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-good-pumpkin.png")));
+    btnNewButton.setIcon(new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-pumpkin.png")));
     getContentPane().add(btnNewButton, BorderLayout.CENTER);
 
     setSize(dimEcran.width, dimEcran.height);
@@ -76,21 +77,16 @@ public class IhmSmiley extends JDialog
     if(okCourse==0){
       if(numberMissed<1)
       {
-        // icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-good-green.png"));
-        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-good-pumpkin.png"));
+        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-pumpkin.png"));
       }
       else
       {
-        //https://freesvg.org/vector-image-of-purple-dazed-smiley
-        // icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-surprised.png"));
-        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-surprised-zombie.png"));
+        icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-ghost.png"));
       }
     }
     else
     { //missed start or finish
-      //https://freesvg.org/yellow-smiley-with-neutral-face-illustration
-      // icon = new ImageIcon(IhmSmiley.class.getResource("/icones/glassy-smiley-late.png"));
-      icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-late-ghost.png"));
+      icon = new ImageIcon(IhmSmiley.class.getResource("/icones/smiley-zombie.png"));
     }
     Image img = icon.getImage();
     Image newimg = img.getScaledInstance(btnNewButton.getSize().width, btnNewButton.getSize().height, java.awt.Image.SCALE_SMOOTH);
@@ -179,7 +175,7 @@ public class IhmSmiley extends JDialog
     }
     else
     {
-      ohno.play();
+      boo.play();
     }
   }
 
