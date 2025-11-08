@@ -30,8 +30,13 @@ If you are not a developer, please install EasyGecNG using these steps.
       - `sudo usermod -a -G uucp $USER` on arch-likes (Arch, Manjaro, etc)
     - Restart, then check that the `uucp/dialout` appears in the results of the `groups` command.
 ##### 3. Download EasyGec .Zip File
-- Download the latest [release](https://github.com/Navigation-Games/EasyGecNG/releases) by clicking "**EasyGecNG-v1.1.0.zip**"
-  - Alternatively, find old releases [here](https://www.navigationgames.org/about-3).
+- Download the app by clicking "**EasyGecNG-v1.1.0.zip**" for one of the following versions:
+  - [v1.1.1](https://github.com/Navigation-Games/EasyGecNG/releases/tag/v1.1.1) - current best version
+  - [v1.1.0](https://github.com/Navigation-Games/EasyGecNG/releases/tag/v1.1.0) - use this if you run into any crashes with `v1.1.1`
+  - [vHalloween](https://github.com/Navigation-Games/EasyGecNG/releases/tag/v1.1.2-halloween) - use this for Halloween special events
+  - [latest](https://github.com/Navigation-Games/EasyGecNG/releases/latest)
+- If you want to use the original EasyGec from Thierry Porret, you can find it [here](http://t.porret.free.fr/lienlogiciel.php?idmenu=60)
+<!-- - Alternatively, here are some old releases [here](https://www.navigationgames.org/about-3). -->
 ##### 4. Extract the .Zip File
 - Here are instructions on [how to unzip/extract a .zip file](https://www.geeksforgeeks.org/how-to-unzip-files-in-windows-and-mac/). 
 - This should create a new folder without the ".zip" in the name.
